@@ -32,16 +32,19 @@ syntax on               " ~ enable syntax highlights
 set number              " ~ enable numbered lines
 set ruler               " ~ shows cursor position
 set showmatch           " ~ show matched curly braces
-set autoindent          " ~ set autotamic indent
-set expandtab           " ~ set tab to spaces
+set autoindent          " ~ set automatic indent
 set tabstop=4           " ~ set tab spaces to 4
+set shiftwidth=4        " ~ more indent config.
 set softtabstop=4       " ~ remove spaces as if they were tabs
+set expandtab           " ~ set tab to spaces
 
 filetype on
 set showmatch
 set ignorecase
 set smartcase
 set ignorecase  " ~ search in file config.
+
+autocmd BufWritePost .vimrc so %    " ~ source vimrc every time is saved
 
 " ~~~ [ pretty things ]
 autocmd vimenter * ++nested colorscheme gruvbox
@@ -58,6 +61,12 @@ call plug#begin()
     Plug 'https://github.com/fatih/vim-go'              " ~ Go support plugin for vim
     Plug 'preservim/nerdtree'                           " ~ file tree support
     Plug 'morhetz/gruvbox'                              " ~ nice color scheme
+
+    " ~~~ (testing plugs)
+    Plug 'junegunn/goyo.vim'
+    Plug 'amix/vim-zenroom2'
+    Plug 'mileszs/ack.vim'
+    Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 " ~~~
 
